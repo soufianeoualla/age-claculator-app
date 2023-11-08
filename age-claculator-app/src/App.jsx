@@ -146,11 +146,10 @@ import AgeResult from "./Components/AgeResult.jsx"
     
   
     } else if(isPastDate && isPrecheckValid)
-    setformError((prevState)=>({
-      ...prevState ,
-      day: formError.day && isDayInputValid ? '': prevState.day,
-      month: formError.month && isMonthInputValid ? '': prevState.month,
-      year: formError.year && isYearInputValid ? '': prevState.year,
+   setformError(()=>({
+      day:  '',
+      month: '',
+      year: '',
       generic:'Must be a date in the past'}))
     
       else {
@@ -202,6 +201,7 @@ import AgeResult from "./Components/AgeResult.jsx"
           </label>
           
           {formError.day && <p className="error">{formError.day} </p>}
+         {formError.generic && <p className="error generic">{formError.generic} </p>}
         </div>
         <div className="month-input">
           <p>Month</p>
